@@ -23,16 +23,6 @@
       <div class="scene-sky"></div>
       <div class="scene-forest"></div>
       <div class="scene-meadow"></div>
-      <div class="scene-bee scene-bee-1">🐝</div>
-      <div class="scene-bee scene-bee-2">🐝</div>
-      <div class="scene-bee scene-bee-3">🐝</div>
-      <div class="scene-bee scene-bee-4">🐝</div>
-      <div class="scene-bee scene-bee-5">🐝</div>
-      <div class="scene-bee scene-bee-1">🐝</div>
-      <div class="scene-bee scene-bee-2">🐝</div>
-      <div class="scene-bee scene-bee-3">🐝</div>
-      <div class="scene-bee scene-bee-4">🐝</div>
-      <div class="scene-bee scene-bee-5">🐝</div>
     </div>
 
     <header class="topbar" aria-label="Nawigacja">
@@ -66,112 +56,109 @@
         </article>
       </section>
 
-      <section class="panel" id="historia">
-        <article class="card card-history">
-          <div class="history-media" aria-label="Przykladowe zdjecia z pasieki">
+      <section class="panel panel-split" id="historia">
+        <div class="history-media" data-dots="historyDots" aria-label="Przykladowe zdjecia z pasieki">
+          <figure class="history-photo history-photo-1 is-active">
+            <span class="emoji">🐝</span>
+            <figcaption>Nasze ule</figcaption>
+          </figure>
+          <figure class="history-photo history-photo-2">
+            <span class="emoji">🌲</span>
+            <figcaption>Skraj lasu</figcaption>
+          </figure>
+          <figure class="history-photo history-photo-3">
+            <span class="emoji">🍯</span>
+            <figcaption>Swiezy miod</figcaption>
+          </figure>
+          <figure class="history-photo history-photo-4">
+            <span class="emoji">👨‍🌾</span>
+            <figcaption>Rodzinna praca</figcaption>
+          </figure>
+        </div>
+        <div class="split-content">
+          <p class="overline">Kim jestesmy</p>
+          <h2>Historia Pasieki pod Lasem.</h2>
+          <p>
+            Zaczelismy od kilku uli na skraju lasu i pasji przekazywanej z
+            pokolenia na pokolenie. Dzis nasza pasieka to miejsce, w ktorym
+            tradycyjne metody pszczelarskie laczymy z troska o pszczoly i
+            otaczajaca je przyrode. Kazdy slik miodu to efekt cierpliwosci,
+            szacunku dla natury i wielu godzin pracy w cieniu drzew.
+          </p>
+          <div class="meta">
+            <span>Rodzinna pasieka</span>
+            <span>Od pokolen</span>
+            <span>100% naturalne</span>
+          </div>
+          <div class="carousel-dots" id="historyDots"></div>
+        </div>
+      </section>
+
+      <section class="panel panel-split panel-split-stacked" id="sezonowe">
+        <div class="split-heading">
+          <p class="overline">Sezonowe produkty</p>
+          <h2>Smaki, ktore zmieniaja sie z pora roku.</h2>
+        </div>
+        <div class="split-row">
+          <div class="history-media" data-dots="seasonDots" aria-label="Przykladowe zdjecia sezonowe">
             <figure class="history-photo history-photo-1 is-active">
-              <span class="emoji">🐝</span>
-              <figcaption>Nasze ule</figcaption>
+              <span class="emoji">🌸</span>
+              <figcaption>Wiosna</figcaption>
             </figure>
             <figure class="history-photo history-photo-2">
-              <span class="emoji">🌲</span>
-              <figcaption>Skraj lasu</figcaption>
+              <span class="emoji">🌳</span>
+              <figcaption>Lato</figcaption>
             </figure>
             <figure class="history-photo history-photo-3">
-              <span class="emoji">🍯</span>
-              <figcaption>Swiezy miod</figcaption>
+              <span class="emoji">🍂</span>
+              <figcaption>Jesien</figcaption>
             </figure>
             <figure class="history-photo history-photo-4">
-              <span class="emoji">👨‍🌾</span>
-              <figcaption>Rodzinna praca</figcaption>
+              <span class="emoji">🎁</span>
+              <figcaption>Promocja</figcaption>
             </figure>
           </div>
-          <div class="history-text">
-            <p class="overline">Kim jestesmy</p>
-            <h2>Historia Pasieki pod Lasem.</h2>
+          <div class="split-content">
             <p>
-              Zaczelismy od kilku uli na skraju lasu i pasji przekazywanej z
-              pokolenia na pokolenie. Dzis nasza pasieka to miejsce, w ktorym
-              tradycyjne metody pszczelarskie laczymy z troska o pszczoly i
-              otaczajaca je przyrode. Kazdy slik miodu to efekt cierpliwosci,
-              szacunku dla natury i wielu godzin pracy w cieniu drzew.
+              Wiosna - miod rzepakowy i pierzga, lato - miod lipowy i
+              wielokwiatowy, jesien - miod gryczany i propolis. Kazdy sezon to
+              nowa, ograniczona kolekcja prosto z naszej pasieki.
             </p>
-            <div class="meta">
-              <span>Rodzinna pasieka</span>
-              <span>Od pokolen</span>
-              <span>100% naturalne</span>
+            <div class="tag-list" aria-label="Produkty sezonowe">
+              <span>Miod lipowy</span>
+              <span>Miod gryczany</span>
+              <span>Pierzga</span>
+              <span>Propolis</span>
             </div>
+            <div class="carousel-dots" id="seasonDots"></div>
           </div>
-        </article>
+        </div>
       </section>
 
-      <section class="panel" id="sezonowe">
-        <article class="card card-seasonal">
-          <div class="seasonal-heading">
-            <p class="overline">Sezonowe produkty</p>
-            <h2>Smaki, ktore zmieniaja sie z pora roku.</h2>
-          </div>
-          <div class="seasonal-body">
-            <div class="history-media" aria-label="Przykladowe zdjecia sezonowe">
-              <figure class="history-photo history-photo-1 is-active">
-                <span class="emoji">🌸</span>
-                <figcaption>Wiosna</figcaption>
-              </figure>
-              <figure class="history-photo history-photo-2">
-                <span class="emoji">🌳</span>
-                <figcaption>Lato</figcaption>
-              </figure>
-              <figure class="history-photo history-photo-3">
-                <span class="emoji">🍂</span>
-                <figcaption>Jesien</figcaption>
-              </figure>
-              <figure class="history-photo history-photo-4">
-                <span class="emoji">🎁</span>
-                <figcaption>Promocja</figcaption>
-              </figure>
-            </div>
-            <div class="history-text">
-              <p>
-                Wiosna - miod rzepakowy i pierzga, lato - miod lipowy i
-                wielokwiatowy, jesien - miod gryczany i propolis. Kazdy sezon to
-                nowa, ograniczona kolekcja prosto z naszej pasieki.
-              </p>
-              <div class="tag-list" aria-label="Produkty sezonowe">
-                <span>Miod lipowy</span>
-                <span>Miod gryczany</span>
-                <span>Pierzga</span>
-                <span>Propolis</span>
-              </div>
-            </div>
-          </div>
-        </article>
-      </section>
-
-      <section class="panel" id="produkty">
-        <article class="card card-carousel">
+      <section class="panel panel-split panel-split-stacked" id="produkty">
+        <div class="split-heading">
           <p class="overline">Nasze produkty</p>
           <h2>Wybierz swoj ulubiony miod.</h2>
-          <div class="carousel" aria-roledescription="karuzela produktow">
-            <button class="carousel-btn carousel-prev" aria-label="Poprzedni produkt">&#10094;</button>
-            <div class="carousel-track" id="carouselTrack"></div>
-            <button class="carousel-btn carousel-next" aria-label="Nastepny produkt">&#10095;</button>
+        </div>
+        <div class="split-row">
+          <div class="carousel-media">
+            <div class="carousel" aria-roledescription="karuzela produktow">
+              <button class="carousel-btn carousel-prev" aria-label="Poprzedni produkt">&#10094;</button>
+              <div class="carousel-track" id="carouselTrack"></div>
+              <button class="carousel-btn carousel-next" aria-label="Nastepny produkt">&#10095;</button>
+            </div>
           </div>
-          <div class="carousel-dots" id="carouselDots"></div>
-        </article>
+          <div class="split-content">
+            <p>Przesuwaj sie miedzy przykladowymi produktami strzalkami lub poczekaj, az zmienia sie same.</p>
+            <div class="carousel-dots" id="carouselDots"></div>
+          </div>
+        </div>
       </section>
 
-      <section class="panel panel-contact" id="kontakt">
-        <article class="card">
-          <p class="overline">Kontakt</p>
-          <h2>Napisz do nas lub odwiedz pasieke.</h2>
-          <p>
-            kontakt@pasiekapodlasem.pl<br />
-            +48 000 000 000
-          </p>
-          <a class="cta cta-secondary" href="mailto:kontakt@pasiekapodlasem.pl"
-            >Napisz e-mail</a
-          >
-          <div class="map-wrap">
+      <section class="panel panel-split panel-contact" id="kontakt">
+        <div class="map-media">
+          <p class="map-heading">Gdzie nas znalezc</p>
+          <div class="map-square">
             <iframe
               class="map-frame"
               title="Mapa - Pasieka pod Lasem"
@@ -180,23 +167,52 @@
               referrerpolicy="no-referrer-when-downgrade"
             ></iframe>
           </div>
-        </article>
+        </div>
+        <div class="split-content">
+          <p class="overline">Kontakt</p>
+          <h2>Napisz do nas lub odwiedz pasieke.</h2>
+          <p>
+            kontakt@pasiekapodlasem.pl<br />
+            +48 000 000 000
+          </p>
+          <div class="cta-group">
+            <a class="cta cta-secondary" href="mailto:kontakt@pasiekapodlasem.pl"
+              >Napisz e-mail</a
+            >
+            <a class="cta" href="tel:+48000000000">Zadzwon</a>
+          </div>
+          <form class="contact-form" aria-label="Formularz kontaktowy">
+            <div class="form-row">
+              <label for="cf-name">Imie i nazwisko</label>
+              <input type="text" id="cf-name" name="name" placeholder="Jan Kowalski" required />
+            </div>
+            <div class="form-row">
+              <label for="cf-email">Adres e-mail</label>
+              <input type="email" id="cf-email" name="email" placeholder="jan@example.com" required />
+            </div>
+            <div class="form-row">
+              <label for="cf-message">Wiadomosc</label>
+              <textarea id="cf-message" name="message" rows="3" placeholder="W czym mozemy pomoc?" required></textarea>
+            </div>
+            <button type="submit" class="cta">Wyslij wiadomosc</button>
+          </form>
+        </div>
       </section>
-    </main>
 
-    <footer class="site-footer">
-      <div class="footer-brand">
-        <span class="brand-logo-crop small">
-          <img src="assets/logo2.jpg" alt="Pasieka pod Lasem - logo" class="brand-logo" />
-        </span>
-        <span>Pasieka pod Lasem</span>
-      </div>
-      <ul>
-        <li><a href="#" aria-label="Instagram">Instagram</a></li>
-        <li><a href="#" aria-label="Facebook">Facebook</a></li>
-      </ul>
-      <p class="footer-copy">&copy; 2026 Pasieka pod Lasem. Wszystkie prawa zastrzezone.</p>
-    </footer>
+      <footer class="site-footer">
+        <div class="footer-brand">
+          <span class="brand-logo-crop small">
+            <img src="assets/logo2.jpg" alt="Pasieka pod Lasem - logo" class="brand-logo" />
+          </span>
+          <span>Pasieka pod Lasem</span>
+        </div>
+        <ul>
+          <li><a href="#" aria-label="Instagram">Instagram</a></li>
+          <li><a href="#" aria-label="Facebook">Facebook</a></li>
+        </ul>
+        <p class="footer-copy">&copy; 2026 Pasieka pod Lasem. Wszystkie prawa zastrzezone.</p>
+      </footer>
+    </main>
 
     <script src="script.js"></script>
   </body>

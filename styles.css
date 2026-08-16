@@ -54,9 +54,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--line);
-  background: rgba(233, 227, 219, 0.58);
+  background: var(--bg-1);
 }
 
 .brand {
@@ -139,8 +138,129 @@ body {
   pointer-events: none;
 }
 
+.panel-split {
+  display: flex;
+  align-items: stretch;
+  justify-items: initial;
+  padding-top: clamp(5.5rem, 9vw, 6.5rem);
+  overflow: hidden;
+  background: var(--bg-1);
+}
+
+.panel-split::before {
+  display: none;
+}
+
+.panel-split .history-media,
+.panel-split .carousel-media,
+.panel-split .map-media {
+  flex: 2 1 0;
+  min-width: 0;
+  position: relative;
+  height: auto;
+  border-radius: 0;
+  box-shadow: none;
+  aspect-ratio: auto;
+}
+
+.split-content {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem clamp(1.5rem, 4vw, 3rem);
+  background: var(--bg-1);
+  border-left: 1px solid var(--line);
+  position: relative;
+  z-index: 2;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: transform 700ms ease, opacity 700ms ease;
+}
+
+.split-content.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.carousel-media .carousel {
+  height: 100%;
+  margin-top: 0;
+  padding: 1.5rem;
+}
+
+.panel-split .carousel-track {
+  height: 100%;
+  border-radius: 0.6rem;
+}
+
+.map-media {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: var(--bg-1);
+}
+
+.map-heading {
+  margin: 0;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(1.2rem, 2.4vw, 1.7rem);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ink);
+  text-align: center;
+}
+
+.map-square {
+  width: min(100%, 30rem);
+  aspect-ratio: 1 / 1;
+  border-radius: 1.2rem;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.map-square .map-frame {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+.panel-split-stacked {
+  flex-direction: column;
+}
+
+.split-heading {
+  text-align: center;
+  padding: 0 1.5rem 0.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.split-row {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  align-items: stretch;
+}
+
+.panel-contact .map-media {
+  flex: 0 0 42%;
+}
+
+.panel-contact .split-content {
+  border-left: none;
+  padding-bottom: 6rem;
+}
+
 .card {
-  width: min(920px, 100%);
+  width: min(1080px, 100%);
   border-radius: var(--radius);
   padding: clamp(1.5rem, 4vw, 3.2rem);
   background: var(--card);
@@ -159,8 +279,11 @@ body {
 
 .card-hero {
   text-align: center;
-  max-width: 980px;
   z-index: 2;
+  background: rgba(250, 244, 228, 0.08);
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: none;
+  backdrop-filter: blur(1px);
 }
 
 .scene {
@@ -214,44 +337,16 @@ body {
 
 .scene-bee {
   position: absolute;
-  font-size: clamp(1.2rem, 2.6vw, 2rem);
-  animation: buzz 7s ease-in-out infinite;
+  top: 0;
+  left: 0;
+  font-size: clamp(1rem, 2.2vw, 1.7rem);
+  will-change: transform;
+  transition: transform 160ms linear;
 }
 
-.scene-bee-1 {
-  top: 22%;
-  left: 10%;
-  animation-duration: 7s;
-}
-
-.scene-bee-2 {
-  top: 40%;
-  left: 30%;
-  animation-duration: 8.5s;
-  animation-delay: -2s;
-  animation-direction: reverse;
-}
-
-.scene-bee-3 {
-  top: 16%;
-  left: 55%;
-  animation-duration: 6.5s;
-  animation-delay: -4s;
-}
-
-.scene-bee-4 {
-  top: 48%;
-  left: 72%;
-  animation-duration: 9s;
-  animation-delay: -1s;
-  animation-direction: reverse;
-}
-
-.scene-bee-5 {
-  top: 30%;
-  left: 88%;
-  animation-duration: 7.5s;
-  animation-delay: -3s;
+.scene-queen {
+  font-size: clamp(1.5rem, 3vw, 2.3rem);
+  filter: drop-shadow(0 0 8px rgba(217, 147, 43, 0.85));
 }
 
 @keyframes roam {
@@ -272,21 +367,6 @@ body {
   100% {
     left: -12%;
     transform: scaleX(1) translateY(0);
-  }
-}
-
-@keyframes buzz {
-  0%, 100% {
-    transform: translate(0, 0) rotate(0deg);
-  }
-  25% {
-    transform: translate(18px, -14px) rotate(8deg);
-  }
-  50% {
-    transform: translate(36px, 4px) rotate(-4deg);
-  }
-  75% {
-    transform: translate(14px, 16px) rotate(6deg);
   }
 }
 
@@ -317,8 +397,9 @@ h2 {
 }
 
 .lead,
-.card p {
-  margin: 1.1rem 0 0;
+.card p,
+.split-content p {
+  margin: 1.1rem auto 0;
   color: var(--ink-soft);
   line-height: 1.7;
   max-width: 62ch;
@@ -347,9 +428,66 @@ h2 {
   color: var(--ink);
 }
 
+.cta-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.8rem;
+}
+
+.cta-group .cta {
+  margin-top: 1.8rem;
+}
+
+.contact-form {
+  width: 100%;
+  max-width: 26rem;
+  margin-top: 1.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  text-align: left;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.form-row label {
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+}
+
+.form-row input,
+.form-row textarea {
+  font: inherit;
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid var(--line);
+  border-radius: 0.6rem;
+  padding: 0.6rem 0.8rem;
+  resize: vertical;
+}
+
+.form-row input:focus,
+.form-row textarea:focus {
+  outline: 2px solid var(--honey);
+  outline-offset: 1px;
+}
+
+.contact-form button.cta {
+  align-self: center;
+  margin-top: 0.4rem;
+  border: none;
+  cursor: pointer;
+}
+
 .meta,
 .tag-list {
   display: flex;
+  justify-content: center;
   gap: 0.6rem;
   flex-wrap: wrap;
   margin-top: 1.4rem;
@@ -364,33 +502,6 @@ h2 {
   font-size: 0.84rem;
 }
 
-.card-history {
-  display: flex;
-  align-items: center;
-  gap: clamp(1.5rem, 4vw, 3rem);
-  text-align: left;
-}
-
-.card-seasonal {
-  width: min(1080px, 100%);
-}
-
-.seasonal-heading {
-  text-align: center;
-  margin-bottom: 1.6rem;
-}
-
-.seasonal-body {
-  display: flex;
-  align-items: flex-start;
-  gap: clamp(1.5rem, 4vw, 3rem);
-  text-align: left;
-}
-
-.seasonal-body .history-text p:first-child {
-  margin-top: 0;
-}
-
 .history-media {
   position: relative;
   flex: 0 0 clamp(11rem, 34%, 20rem);
@@ -398,16 +509,6 @@ h2 {
   border-radius: 1rem;
   overflow: hidden;
   box-shadow: var(--shadow);
-}
-
-.history-text {
-  flex: 1;
-  min-width: 0;
-}
-
-.history-text .lead,
-.history-text p {
-  margin: 1.1rem 0 0;
 }
 
 .history-photo {
@@ -522,10 +623,6 @@ h2 {
   background: rgba(217, 147, 43, 0.12);
 }
 
-.card-carousel {
-  text-align: center;
-}
-
 .carousel {
   margin-top: 1.8rem;
   display: flex;
@@ -603,36 +700,31 @@ h2 {
 }
 
 .carousel-dots {
-  margin-top: 1rem;
+  margin: 1.4rem auto 0;
   display: flex;
   justify-content: center;
-  gap: 0.5rem;
+  align-self: center;
+  gap: 0.7rem;
 }
 
 .carousel-dots button {
-  width: 0.6rem;
-  height: 0.6rem;
+  width: 0.95rem;
+  height: 0.95rem;
   border-radius: 50%;
   border: none;
   background: var(--line);
   cursor: pointer;
   padding: 0;
+  transition: transform 200ms ease, background 200ms ease;
+}
+
+.carousel-dots button:hover {
+  transform: scale(1.15);
 }
 
 .carousel-dots button.is-active {
   background: var(--honey);
-}
-
-.panel-contact {
-  padding-bottom: 6rem;
-}
-
-.map-wrap {
-  margin-top: 1.8rem;
-  border-radius: 1rem;
-  overflow: hidden;
-  border: 1px solid var(--line);
-  box-shadow: var(--shadow);
+  transform: scale(1.2);
 }
 
 .map-frame {
@@ -643,6 +735,11 @@ h2 {
 }
 
 .site-footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 12;
   padding: 1.6rem 5vw;
   border-top: 1px solid var(--line);
   display: flex;
@@ -650,7 +747,13 @@ h2 {
   align-items: center;
   gap: 1rem;
   flex-wrap: wrap;
-  background: rgba(238, 227, 200, 0.65);
+  background: var(--bg-1);
+  transform: translateY(100%);
+  transition: transform 400ms ease;
+}
+
+.site-footer.is-pinned {
+  transform: translateY(0);
 }
 
 .footer-brand {
@@ -711,13 +814,33 @@ h2 {
     gap: 0.5rem;
   }
 
-  .card-history {
+  .panel-split {
     flex-direction: column;
-    text-align: center;
   }
 
-  .seasonal-body {
+  .split-row {
     flex-direction: column;
+  }
+
+  .panel-split .history-media,
+  .panel-split .carousel-media,
+  .panel-split .map-media {
+    flex: 0 0 44vh;
+    width: 100%;
+  }
+
+  .map-square {
+    max-width: 14rem;
+  }
+
+  .split-heading {
+    padding: 0 1.2rem 0.5rem;
+  }
+
+  .split-content {
+    border-left: none;
+    border-top: 1px solid var(--line);
+    padding: 1.6rem 1.2rem 2rem;
     text-align: center;
   }
 
@@ -749,9 +872,12 @@ h2 {
     transition: none;
   }
 
-  .scene-animal,
-  .scene-bee {
+  .scene-animal {
     animation: none;
+  }
+
+  .scene-bee {
+    transition: none;
   }
 
   .carousel-slide {
